@@ -46,6 +46,8 @@ $container\
 $shell\
 $character"""
 
+right_format = """$cmd_duration"""
+
 # format = """
 # [base](base)
 # [rosewater](rosewater)
@@ -140,7 +142,7 @@ format = '\[[$symbol$branch]($style)\]'
 [git_status]
 format = '([\[$all_status$ahead_behind\]]($style))'
 ahead = '⇡${count}'
-diverged = '⇕⇡${ahead_count}:⇣${behind_count}'
+diverged = '⇡${ahead_count}⇣${behind_count}'
 behind = '⇣${count}'
 conflicted = '=${count}'
 untracked = '?${count}'
@@ -180,6 +182,10 @@ format = '\[[$time]($style)\]'
 [username]
 format = '\[[$user]($style)\]'
 
+[cmd_duration]
+style = 'dimmed lavender'
+format = '[took $duration]($style)'
+
 ##########
 # DISABLED
 ##########
@@ -194,9 +200,6 @@ disabled = true
 disabled = true
 
 [cmake]
-disabled = true
-
-[cmd_duration]
 disabled = true
 
 [cobol]
