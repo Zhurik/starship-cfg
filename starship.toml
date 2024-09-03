@@ -4,179 +4,113 @@
 # Inserts a blank line between shell prompts
 add_newline = false
 
-[aws]
-format = '\[[$symbol($profile)(\($region\))(\[$duration\])]($style)\]'
+# format = """
+# [base](base)
+# [rosewater](rosewater)
+# [flamingo](flamingo)
+# [pink](pink)
+# [mauve](mauve)
+# [red](red)
+# [maroon](maroon)
+# [peach](peach)
+# [yellow](yellow)
+# [green](green)
+# [teal](teal)
+# [sky](sky)
+# [sapphire](sapphire)
+# [blue](blue)
+# [lavender](lavender)
+# [text](text)
+# [subtext1](subtext1)
+# [subtext0](subtext0)
+# [overlay2](overlay2)
+# [overlay1](overlay1)
+# [overlay0](overlay0)
+# [surface2](surface2)
+# [surface1](surface1)
+# [surface0](surface0)
+# [base](base)
+# [mantle](mantle)
+# [crust](crust)
+# """
 
-[bun]
-format = '\[[$symbol($version)]($style)\]'
+#######
+# THEME
+#######
 
-[c]
-format = '\[[$symbol($version(-$name))]($style)\]'
+palette = "catppuccin_frappe"
 
-[cmake]
-format = '\[[$symbol($version)]($style)\]'
+[palettes.catppuccin_frappe]
+rosewater = "#f2d5cf"
+flamingo = "#eebebe"
+pink = "#f4b8e4"
+mauve = "#ca9ee6"
+red = "#e78284"
+maroon = "#ea999c"
+peach = "#ef9f76"
+yellow = "#e5c890"
+green = "#a6d189"
+teal = "#81c8be"
+sky = "#99d1db"
+sapphire = "#85c1dc"
+blue = "#8caaee"
+lavender = "#babbf1"
+text = "#c6d0f5"
+subtext1 = "#b5bfe2"
+subtext0 = "#a5adce"
+overlay2 = "#949cbb"
+overlay1 = "#838ba7"
+overlay0 = "#737994"
+surface2 = "#626880"
+surface1 = "#51576d"
+surface0 = "#414559"
+base = "#303446"
+mantle = "#292c3c"
+crust = "#232634"
 
-[cmd_duration]
-format = '\[[⏱ $duration]($style)\]'
-
-[cobol]
-format = '\[[$symbol($version)]($style)\]'
-
-[conda]
-format = '\[[$symbol$environment]($style)\]'
-
-[crystal]
-format = '\[[$symbol($version)]($style)\]'
-
-[daml]
-format = '\[[$symbol($version)]($style)\]'
-
-[dart]
-format = '\[[$symbol($version)]($style)\]'
-
-[deno]
-format = '\[[$symbol($version)]($style)\]'
-
-[docker_context]
-format = '\[[$symbol$context]($style)\]'
-
-[dotnet]
-format = '\[[$symbol($version)(🎯 $tfm)]($style)\]'
-
-[elixir]
-format = '\[[$symbol($version \(OTP $otp_version\))]($style)\]'
-
-[elm]
-format = '\[[$symbol($version)]($style)\]'
-
-[erlang]
-format = '\[[$symbol($version)]($style)\]'
-
-[fennel]
-format = '\[[$symbol($version)]($style)\]'
-
-[fossil_branch]
-format = '\[[$symbol$branch]($style)\]'
-
-[gcloud]
-format = '\[[$symbol$account(@$domain)(\($region\))]($style)\]'
+#########
+# MODULES
+#########
 
 [git_branch]
 format = '\[[$symbol$branch]($style)\]'
 
 [git_status]
 format = '([\[$all_status$ahead_behind\]]($style))'
+ahead = '⇡${count}'
+diverged = '⇕⇡${ahead_count}:⇣${behind_count}'
+behind = '⇣${count}'
+conflicted = '=${count}'
+untracked = '?${count}'
+stashed = '\$${count}'
+modified = '!${count}'
+staged = '+${count}'
+renamed = '»${count}'
+deleted = '✘${count}'
 
 [golang]
-format = '\[[$symbol($version)]($style)\]'
-
-[gradle]
-format = '\[[$symbol($version)]($style)\]'
-
-[guix_shell]
-format = '\[[$symbol]($style)\]'
-
-[haskell]
-format = '\[[$symbol($version)]($style)\]'
-
-[haxe]
-format = '\[[$symbol($version)]($style)\]'
+format = ' via [$symbol]($style)'
 
 [helm]
-format = '\[[$symbol($version)]($style)\]'
-
-[hg_branch]
-format = '\[[$symbol$branch]($style)\]'
-
-[java]
-format = '\[[$symbol($version)]($style)\]'
-
-[julia]
-format = '\[[$symbol($version)]($style)\]'
-
-[kotlin]
-format = '\[[$symbol($version)]($style)\]'
-
-[kubernetes]
-format = '\[[$symbol$context( \($namespace\))]($style)\]'
-
-[lua]
-format = '\[[$symbol($version)]($style)\]'
+format = ' via [$symbol]($style)'
 
 [memory_usage]
 format = '\[$symbol[$ram( | $swap)]($style)\]'
 
-[meson]
-format = '\[[$symbol$project]($style)\]'
-
-[nim]
-format = '\[[$symbol($version)]($style)\]'
-
-[nix_shell]
-format = '\[[$symbol$state( \($name\))]($style)\]'
-
 [nodejs]
-format = '\[[$symbol($version)]($style)\]'
-
-[ocaml]
-format = '\[[$symbol($version)(\($switch_indicator$switch_name\))]($style)\]'
-
-[opa]
-format = '\[[$symbol($version)]($style)\]'
-
-[openstack]
-format = '\[[$symbol$cloud(\($project\))]($style)\]'
+format = 'via [$symbol]($style)'
 
 [os]
 format = '\[[$symbol]($style)\]'
 
-[package]
-format = '\[[$symbol$version]($style)\]'
-
-[perl]
-format = '\[[$symbol($version)]($style)\]'
-
-[php]
-format = '\[[$symbol($version)]($style)\]'
-
-[pijul_channel]
-format = '\[[$symbol$channel]($style)\]'
-
-[pulumi]
-format = '\[[$symbol$stack]($style)\]'
-
-[purescript]
-format = '\[[$symbol($version)]($style)\]'
-
 [python]
-format = '\[[${symbol}${pyenv_prefix}(${version})(\($virtualenv\))]($style)\]'
-
-[raku]
-format = '\[[$symbol($version-$vm_version)]($style)\]'
-
-[red]
-format = '\[[$symbol($version)]($style)\]'
-
-[ruby]
-format = '\[[$symbol($version)]($style)\]'
+format = ' via [$symbol]($style)'
 
 [rust]
-format = '\[[$symbol($version)]($style)\]'
-
-[scala]
-format = '\[[$symbol($version)]($style)\]'
-
-[spack]
-format = '\[[$symbol$environment]($style)\]'
+format = ' via [$symbol]($style)'
 
 [sudo]
 format = '\[[as $symbol]($style)\]'
-
-[swift]
-format = '\[[$symbol($version)]($style)\]'
-
-[terraform]
-format = '\[[$symbol$workspace]($style)\]'
 
 [time]
 format = '\[[$time]($style)\]'
@@ -184,14 +118,162 @@ format = '\[[$time]($style)\]'
 [username]
 format = '\[[$user]($style)\]'
 
+##########
+# DISABLED
+##########
+
+[aws]
+disabled = true
+
+[bun]
+disabled = true
+
+[c]
+disabled = true
+
+[cmake]
+disabled = true
+
+[cmd_duration]
+disabled = true
+
+[cobol]
+disabled = true
+
+[conda]
+disabled = true
+
+[crystal]
+disabled = true
+
+[daml]
+disabled = true
+
+[dart]
+disabled = true
+
+[deno]
+disabled = true
+
+[docker_context]
+disabled = true
+
+[dotnet]
+disabled = true
+
+[elixir]
+disabled = true
+
+[elm]
+disabled = true
+
+[erlang]
+disabled = true
+
+[fennel]
+disabled = true
+
+[fossil_branch]
+disabled = true
+
+[gcloud]
+disabled = true
+
+[gradle]
+disabled = true
+
+[guix_shell]
+disabled = true
+
+[haskell]
+disabled = true
+
+[haxe]
+disabled = true
+
+[hg_branch]
+disabled = true
+
+[java]
+disabled = true
+
+[julia]
+disabled = true
+
+[kotlin]
+disabled = true
+
+[kubernetes]
+disabled = true
+
+[lua]
+disabled = true
+
+[meson]
+disabled = true
+
+[nim]
+disabled = true
+
+[nix_shell]
+disabled = true
+
+[ocaml]
+disabled = true
+
+[opa]
+disabled = true
+
+[openstack]
+disabled = true
+
+[package]
+disabled = true
+
+[perl]
+disabled = true
+
+[php]
+disabled = true
+
+[pijul_channel]
+disabled = true
+
+[pulumi]
+disabled = true
+
+[purescript]
+disabled = true
+
+[raku]
+disabled = true
+
+[red]
+disabled = true
+
+[ruby]
+disabled = true
+
+[scala]
+disabled = true
+
+[spack]
+disabled = true
+
+[swift]
+disabled = true
+
+[terraform]
+disabled = true
+
 [vagrant]
-format = '\[[$symbol($version)]($style)\]'
+disabled = true
 
 [vlang]
-format = '\[[$symbol($version)]($style)\]'
+disabled = true
 
 [zig]
-format = '\[[$symbol($version)]($style)\]'
+disabled = true
 
 [solidity]
-format = '\[[$symbol($version)]($style)\]'
+disabled = true
