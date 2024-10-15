@@ -6,10 +6,12 @@ add_newline = false
 
 # Which is equivalent to
 format = """
-$username\
+[╭─](white bg:base)[](overlay2)$username\
 $hostname\
+[](overlay2 bg:overlay1)\
 $localip\
 $directory\
+[ ](bold overlay1 bg:overlay0)\
 $git_branch\
 $git_state\
 $git_status\
@@ -18,8 +20,10 @@ $helm\
 $nodejs\
 $python\
 $rust\
+[ ](bold overlay0)\
 $line_break\
-$character"""
+[╰─](white)$character
+"""
 
 right_format = """$cmd_duration"""
 
@@ -48,7 +52,6 @@ right_format = """$cmd_duration"""
 # [surface2](surface2)
 # [surface1](surface1)
 # [surface0](surface0)
-# [base](base)
 # [mantle](mantle)
 # [crust](crust)
 # """
@@ -87,17 +90,45 @@ base = "#303446"
 mantle = "#292c3c"
 crust = "#232634"
 
+[palettes.catppuccin_latte]
+rosewater = "#dc8a78"
+flamingo = "#dd7878"
+pink = "#ea76cb"
+mauve = "#8839ef"
+red = "#d20f39"
+maroon = "#e64553"
+peach = "#fe640b"
+yellow = "#df8e1d"
+green = "#40a02b"
+teal = "#179299"
+sky = "#04a5e5"
+sapphire = "#209fb5"
+blue = "#1e66f5"
+lavender = "#7287fd"
+text = "#4c4f69"
+subtext1 = "#5c5f77"
+subtext0 = "#6c6f85"
+overlay2 = "#7c7f93"
+overlay1 = "#8c8fa1"
+overlay0 = "#9ca0b0"
+surface2 = "#acb0be"
+surface1 = "#bcc0cc"
+surface0 = "#ccd0da"
+base = "#eff1f5"
+mantle = "#e6e9ef"
+crust = "#dce0e8"
+
 #########
 # MODULES
 #########
 
 [character]
 # Note the use of Catppuccin color 'peach'
-success_symbol = "[[󰄛](green) ❯](peach)"
-error_symbol = "[[󰄛](red) ❯](peach)"
+# success_symbol = "[[󰄛](green) ❯](peach)"
+# error_symbol = "[[󰄛](red) ❯](peach)"
 
 [directory]
-style = "bold lavender"
+style = "bold lavender bg:overlay1"
 format = "[ $path ]($style)"
 truncation_length = 4
 truncation_symbol = "…/"
@@ -116,11 +147,11 @@ truncation_symbol = "…/"
 # "Important 󰈙 " = " 󰈙 "
 
 [git_branch]
-style = "bold mauve"
+style = "bold mauve bg:overlay0"
 format = '[\[$symbol$branch\]]($style)'
 
 [git_status]
-style = 'bold peach'
+style = 'bold peach bg:overlay0'
 format = '([\[$all_status$ahead_behind\]]($style))'
 ahead = '⇡${count}'
 diverged = '⇡${ahead_count}⇣${behind_count}'
@@ -150,7 +181,7 @@ format = 'via [$symbol]($style)'
 format = '\[[$symbol]($style)\]'
 
 [python]
-style = 'flamingo'
+style = 'flamingo bg:overlay0'
 format = '[ via $symbol]($style)'
 
 [rust]
@@ -164,7 +195,14 @@ format = '\[[as $symbol]($style)\]'
 format = '\[[$time]($style)\]'
 
 [username]
-format = '\[[$user]($style)\]'
+# format = '\[[$user]($style)\]'
+# show_always = true
+format = '[$user](text bg:overlay1)'
+
+[hostname]
+# ssh_only = false
+format = '[@]($style)[$hostname]($style)'
+style = 'text bg:overlay1'
 
 [cmd_duration]
 style = 'dimmed lavender'
