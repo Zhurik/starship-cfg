@@ -6,12 +6,15 @@ add_newline = false
 
 # Which is equivalent to
 format = """
-[╭─](white bg:base)[](overlay2)$username\
+[╭─](white)\
+[](surface2)\
+[󰄛 ](green bg:surface2)\
+$username\
 $hostname\
-[](overlay2 bg:overlay1)\
 $localip\
+[](surface2 bg:blue)\
 $directory\
-[ ](bold overlay1 bg:overlay0)\
+[](blue bg:green)\
 $git_branch\
 $git_state\
 $git_status\
@@ -20,41 +23,12 @@ $helm\
 $nodejs\
 $python\
 $rust\
-[ ](bold overlay0)\
+[](green)\
 $line_break\
 [╰─](white)$character
 """
 
 right_format = """$cmd_duration"""
-
-# format = """
-# [base](base)
-# [rosewater](rosewater)
-# [flamingo](flamingo)
-# [pink](pink)
-# [mauve](mauve)
-# [red](red)
-# [maroon](maroon)
-# [peach](peach)
-# [yellow](yellow)
-# [green](green)
-# [teal](teal)
-# [sky](sky)
-# [sapphire](sapphire)
-# [blue](blue)
-# [lavender](lavender)
-# [text](text)
-# [subtext1](subtext1)
-# [subtext0](subtext0)
-# [overlay2](overlay2)
-# [overlay1](overlay1)
-# [overlay0](overlay0)
-# [surface2](surface2)
-# [surface1](surface1)
-# [surface0](surface0)
-# [mantle](mantle)
-# [crust](crust)
-# """
 
 #######
 # THEME
@@ -128,10 +102,13 @@ crust = "#dce0e8"
 # error_symbol = "[[󰄛](red) ❯](peach)"
 
 [directory]
-style = "bold lavender bg:overlay1"
-format = "[ $path ]($style)"
+style = "bold text bg:blue"
+read_only_style = "bold text bg:blue"
+read_only = ' '
+format = "[ $path ]($style)[$read_only]($read_only_style)"
 truncation_length = 4
 truncation_symbol = "…/"
+home_symbol = ''
 
 # Here is how you can shorten some long paths by text replacement
 # similar to mapped_locations in Oh My Posh:
@@ -147,11 +124,11 @@ truncation_symbol = "…/"
 # "Important 󰈙 " = " 󰈙 "
 
 [git_branch]
-style = "bold mauve bg:overlay0"
-format = '[\[$symbol$branch\]]($style)'
+style = "bold crust bg:green"
+format = '[ $symbol$branch ]($style)'
 
 [git_status]
-style = 'bold peach bg:overlay0'
+style = 'bold red bg:green'
 format = '([\[$all_status$ahead_behind\]]($style))'
 ahead = '⇡${count}'
 diverged = '⇡${ahead_count}⇣${behind_count}'
@@ -177,15 +154,13 @@ format = '\[$symbol[$ram( | $swap)]($style)\]'
 [nodejs]
 format = 'via [$symbol]($style)'
 
-[os]
-format = '\[[$symbol]($style)\]'
-
 [python]
 style = 'flamingo bg:overlay0'
 format = '[ via $symbol]($style)'
 
 [rust]
-style = 'flamingo'
+symbol = '🦀'
+style = 'base bg:green'
 format = '[ via $symbol]($style)'
 
 [sudo]
@@ -195,14 +170,17 @@ format = '\[[as $symbol]($style)\]'
 format = '\[[$time]($style)\]'
 
 [username]
-# format = '\[[$user]($style)\]'
-# show_always = true
-format = '[$user](text bg:overlay1)'
+format = '[$user ](peach bg:surface2)'
 
 [hostname]
-# ssh_only = false
-format = '[@]($style)[$hostname]($style)'
-style = 'text bg:overlay1'
+ssh_symbol = ' '
+format = '[$ssh_symbol$hostname ]($style)'
+style = 'peach bg:surface2'
+
+[localip]
+disabled = false
+style = 'peach bg:surface2'
+format = '[$localipv4 ]($style)'
 
 [cmd_duration]
 style = 'dimmed lavender'
