@@ -14,10 +14,11 @@ $hostname\
 $localip\
 [](surface2 bg:blue)\
 $directory\
-[](blue bg:green)\
+[](blue bg:sapphire)\
 $git_branch\
 $git_state\
 $git_status\
+[](sapphire bg:green)\
 $golang\
 $helm\
 $nodejs\
@@ -103,7 +104,7 @@ crust = "#dce0e8"
 
 [directory]
 style = "bold text bg:blue"
-read_only_style = "bold text bg:blue"
+read_only_style = "bold red bg:blue"
 read_only = ' '
 format = "[ $path ]($style)[$read_only]($read_only_style)"
 truncation_length = 4
@@ -124,11 +125,11 @@ home_symbol = ''
 # "Important 󰈙 " = " 󰈙 "
 
 [git_branch]
-style = "bold crust bg:green"
+style = "bold crust bg:sapphire"
 format = '[ $symbol$branch ]($style)'
 
 [git_status]
-style = 'bold red bg:green'
+style = 'bold red bg:sapphire'
 format = '([\[$all_status$ahead_behind\] ]($style))'
 ahead = '⇡${count}'
 diverged = '⇡${ahead_count}⇣${behind_count}'
@@ -143,36 +144,37 @@ deleted = '✘${count}'
 
 [golang]
 symbol = '🐹'
-format = '[via $symbol]($style)'
+format = '[ via $symbol]($style)'
 style = 'base bg:green'
 
 [helm]
 symbol = '⎈'
-format = '[via $symbol]($style)'
+format = '[ via $symbol]($style)'
 style = 'base bg:green'
 
 [nodejs]
 symbol = ''
 style = 'base bg:green'
-format = '[via $symbol]($style)'
+format = '[ via $symbol]($style)'
 
 [python]
 symbol = '🐍'
 style = 'base bg:green'
-format = '[via $symbol]($style)'
+format = '[ via $symbol $virtualenv]($style)'
 
 [rust]
 symbol = '🦀'
 style = 'base bg:green'
-format = '[via $symbol]($style)'
+format = '[ via $symbol]($style)'
 
 [username]
-format = '[$user ](peach bg:surface2)'
+style_user = 'bold peach bg:surface2'
+format = '[$user ]($style)'
 
 [hostname]
 ssh_symbol = ' '
 format = '[$ssh_symbol$hostname ]($style)'
-style = 'peach bg:surface2'
+style = ' bold peach bg:surface2'
 
 [localip]
 disabled = false
